@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+dato:string;
 
-  constructor() {}
+  constructor(public toastController: ToastController,private router: Router) {}
+
+  siguiente(){
+    let navigationextras: NavigationExtras={
+      state:{dato:this.dato}
+    }
+    this.router.navigate(['/login'],navigationextras)
+  }
 
 }
+
