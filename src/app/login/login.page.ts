@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  dato:any;
+  dato:string;
   constructor( private activeRoute: ActivatedRoute,private router: Router) {
     this.activeRoute.queryParams.subscribe(params=>{
       if(this.router.getCurrentNavigation().extras.state){
@@ -16,7 +16,12 @@ export class LoginPage implements OnInit {
       }
     })
    }
-
+   siguiente(){
+    let navigationextras: NavigationExtras={
+      state:{dato:this.dato}
+    }
+    this.router.navigate(['/home'],navigationextras)
+  }
   ngOnInit() {
   }
 

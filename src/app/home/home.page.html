@@ -5,26 +5,28 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar color="mycolor">
-      <ion-title size="large">TeLlevoAPP</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-card>
-
+<ion-content >
+  <div class="ion-text-center">
+    <img class="img1" src="assets/logopagina.svg">
   
-    <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-    <ion-button expand="block"(click)="siguiente()"> Iniciar Sesion</ion-button>
+  </div>
+    <div class="container">
+      <div class="form ion-text-center">
+        <h2>Login </h2>
+        <ion-item lines='none'>
+          <ion-input type="text"[(ngModel)]="dato" placeholder='Nombre'></ion-input>
+        </ion-item>
     
-  </ion-card>
+        <ion-item lines='none'>
+          <ion-input type="email" placeholder='Email'></ion-input>
+        </ion-item>
     
-    
-
-
-</ion-content>
+        <ion-item lines='none'>
+          <ion-input type="password" placeholder='Password'></ion-input>
+        </ion-item>
+        <ion-button expand='block'(click)="siguiente()"> Iniciar Sesion</ion-button>
+        <ion-button expand='block'(click)="siguiente()"> Recuperar Contraseña</ion-button>
+        
+      </div>
+    </div>
+  </ion-content>

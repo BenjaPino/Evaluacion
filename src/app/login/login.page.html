@@ -5,40 +5,22 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar color="mycolor">
-      <ion-title size="large">TeLlevoAPP</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="ion-padding-vertical">
-    <ion-card class="ion-text-center">
-      <ion-card-title>
-        <ion-label>
-          <h1>Iniciar Sesion</h1>
-        </ion-label>
-      </ion-card-title>
-      <ion-card-content>
-        <ion-item class="">
-          <ion-label position="floating"> Nombre</ion-label>
-          <ion-input type="text"[(ngModel)]="dato"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Correo</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <ion-button expand="block"(click)="siguiente()"> Iniciar Sesion</ion-button>
-      </ion-card-content>
-
-    </ion-card>
+<ion-content >
+  <div class="ion-text-center">
     
-    
-
+  
   </div>
-</ion-content>
+    <div class="container">
+      <div class="form ion-text-center">
+        <h2>Login </h2>
+        <ion-item lines='none'>
+          <ion-input placeholder='Email'></ion-input>
+        </ion-item>
+    
+        <ion-item lines='none'>
+          <ion-input placeholder='Password'></ion-input>
+        </ion-item>
+        <ion-button expand='block'(click)="siguiente()"> Iniciar Sesion</ion-button>
+      </div>
+    </div>
+  </ion-content>
