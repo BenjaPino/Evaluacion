@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Agregar</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>
+      TeLlevoAPP
+      <ion-button class="logout"  (click)="salir()"  >
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
-</ion-content>
+<ion-content >
+  <div class="ion-text-center">
+    <img class="img1" src="assets/logopagina.svg">
+  
+  </div>
+    <div class="container">
+      <div class="form ion-text-center">
+        <h2>Agregar Hora </h2>
+        <ion-item lines='none'>
+          <ion-input type="text"[(ngModel)]="dato" placeholder='Nombre'></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label>Dia y Hora a programar</ion-label>
+          <ion-datetime displayFormat="DD / hh:mm"></ion-datetime>
+        </ion-item>
+        <ion-button expand='block'(click)="agregar()"> Agregar </ion-button>
+        <ion-button expand='block'(click)="cancelar()"> Cancelar</ion-button>
+        
+      </div>
+    </div>
+  </ion-content>

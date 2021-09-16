@@ -30,6 +30,7 @@ dato:string;
     
   }
   recuperar(){
+    this.Recuperar();
     let navigationextras: NavigationExtras={
     }
     this.router.navigate(['/recuperar'],navigationextras)
@@ -40,6 +41,17 @@ dato:string;
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Iniciando sesion..',
+      duration: 300
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
+  async Recuperar() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Cargando..',
       duration: 300
     });
     await loading.present();

@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
     this.Programarhora();
     let navigationextras: NavigationExtras={
     }
-    this.router.navigate(['/home'],navigationextras)
+    this.router.navigate(['/agregar'],navigationextras)
   }
 
   
