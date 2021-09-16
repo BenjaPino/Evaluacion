@@ -1,9 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>recuperar</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>
+      TeLlevoAPP
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content >
+  <div class="ion-text-center">
+    <img class="img1" src="assets/logopagina.svg">
+  
+  </div>
+    <div class="container">
+      <div class="form ion-text-center">
+        <h2>Recuperar Contraseña </h2>
+        <ion-item lines='none'>
+          <ion-input type="email" placeholder='Email'></ion-input>
+          
+        </ion-item>
+        <ion-label >Se le enviara la Contraseña al correo</ion-label>
 
-<ion-content>
-
-</ion-content>
+        <ion-button expand='block'(click)="salir()"> Recuperar Contraseña</ion-button>
+        
+      </div>
+    </div>
+  </ion-content>

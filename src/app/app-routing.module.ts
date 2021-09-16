@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+  },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarPageModule)
   },
 ];
 
