@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { AnimationController, ToastController } from '@ionic/angular';
+import { Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,22 @@ import { ToastController } from '@ionic/angular';
 export class HomePage {
 dato:string;
 
-  constructor(public toastController: ToastController,private router: Router) {}
-
-  siguiente(){
+  constructor( private activeRoute: ActivatedRoute,public toastController: 
+    ToastController,private router: Router, private animationCtrl: AnimationController) {
+    this.activeRoute.queryParams.subscribe(params=>{
+      if(this.router.getCurrentNavigation().extras.state)
+        this.dato=this.router.getCurrentNavigation().extras.state.dato;
+        console.log(this.dato)
+      }
+    )}
+   
+   siguiente(){
     let navigationextras: NavigationExtras={
       state:{dato:this.dato}
     }
     this.router.navigate(['/login'],navigationextras)
+  }
+  ngOnInit() {
   }
 
 }
