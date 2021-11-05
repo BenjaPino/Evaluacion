@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>
+      TeLlevoAPP
+      <ion-button class="logout"  (click)="salir()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+    <div class="container">
+      <div class="form ion-text-center">
+      <h2>Bienvenido, {{dato}}. 
+       
+        <br>Aqui podras ver la disponibilidad de alumnos con auto que te pueden llevar a tu casa.
+      </h2>
+    </div>
+    <app-componente-reservar></app-componente-reservar>
+    </div>
+    
+    
+  </ion-content>
