@@ -7,10 +7,12 @@
     <div class="container">
       <div class="form ion-text-center">
         <h2>Agregar Hora </h2>
+        
         <ion-item lines='none'>
           <ion-input type="text"[(ngModel)]="nombre" placeholder='Nombre'></ion-input>
           
         </ion-item>
+        
         <ion-item>
           <ion-label>Dia y Hora a programar</ion-label>
           <ion-datetime displayFormat="DD / hh:mm" [(ngModel)]="dia"></ion-datetime>
