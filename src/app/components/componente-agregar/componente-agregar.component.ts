@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
-
 @Component({
   selector: 'app-componente-agregar',
   templateUrl: './componente-agregar.component.html',
@@ -14,6 +13,7 @@ export class ComponenteAgregarComponent implements OnInit {
   nombre:string;
   dia:string;
   precio:string;  
+  
   cancelar(){
     let navigationextras: NavigationExtras={
     }

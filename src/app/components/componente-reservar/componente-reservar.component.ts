@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
+import { IViajes} from 'src/app/interfaces/iviajes'
 @Component({
   selector: 'app-componente-reservar',
   templateUrl: './componente-reservar.component.html',
   styleUrls: ['./componente-reservar.component.scss'],
 })
 export class ComponenteReservarComponent implements OnInit {
-
+  IViajes:IViajes[]=[];
   constructor(private activeRoute: ActivatedRoute,private router: Router,public toastController: ToastController,
     public loadingController: LoadingController,private bdLocal:BdLocalService) { }
     ionViewWillEnter(){
-      this.getViajes();
+      this.bdLocal.cargarViajes();
     }
   ngOnInit() {}
   siguiente(){

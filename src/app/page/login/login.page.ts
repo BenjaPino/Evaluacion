@@ -20,6 +20,12 @@ export class LoginPage implements OnInit {
    }
   ngOnInit() {
   }
+  agregar(){
+    
+    let navigationextras: NavigationExtras={
+    }
+    this.router.navigate(['/agregar'],navigationextras)
+  }
   salir(){
     this.CerrarSesion();
     let navigationextras: NavigationExtras={
@@ -37,4 +43,5 @@ export class LoginPage implements OnInit {
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   }
+  
 }

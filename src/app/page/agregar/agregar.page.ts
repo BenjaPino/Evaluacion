@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 
@@ -7,21 +7,19 @@ import { LoadingController, ToastController } from '@ionic/angular';
   templateUrl: './agregar.page.html',
   styleUrls: ['./agregar.page.scss'],
 })
-export class AgregarPage implements OnInit {
+export class AgregarPage implements OnInit{
 
   constructor(private activeRoute: ActivatedRoute,private router: Router,public toastController: ToastController,
     public loadingController: LoadingController) { }
+
+
+
   cancelar(){
     let navigationextras: NavigationExtras={
     }
     this.router.navigate(['/login'],navigationextras)
   }
-  agregar(){
-    this.Agregar();
-    let navigationextras: NavigationExtras={
-    }
-    this.router.navigate(['/login'],navigationextras)
-  }
+  
   ngOnInit() {
   }
   salir(){
