@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-notfound',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotfoundPage implements OnInit {
 
-  constructor() { }
+  constructor(private activeRoute: ActivatedRoute,private router: Router,public toastController: ToastController,
+    public loadingController: LoadingController) { }
 
   ngOnInit() {
   }
-
+Volver(){
+  this.router.navigate(['/login'])
+}
 }
