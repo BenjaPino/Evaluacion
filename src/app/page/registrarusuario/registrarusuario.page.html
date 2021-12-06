@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>
+      TeLlevoAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div class="ion-text-center">
+    <img class="img1" src="assets/logopagina.svg">
+  
+  </div>
+    <div class="container">
+      <div class="form ion-text-center">
+        <h2>Login </h2>
+        <ion-item lines='none'>
+          <ion-input type="text" [(ngModel)]="datos.email" placeholder='Correo'required ></ion-input>    
+        </ion-item>
+        <ion-item lines='none'>
+          <ion-input type="text" [(ngModel)]="datos.Nombre" placeholder='Nombre'required ></ion-input>    
+        </ion-item>
+        <ion-item lines='none'>
+          <ion-input type="text" [(ngModel)]="datos.auto" placeholder='Cuentas con Movilizacion - SI/NO'required ></ion-input>    
+        </ion-item>
+        <ion-item lines='none'>
+          <ion-input type="password" [(ngModel)]="datos.password" placeholder='Password' minlength="5" required></ion-input>
+        </ion-item>
+        <ion-button expand='block'(click)="registrar()"> Registrar</ion-button>
+        <ion-button expand='block'(click)="iniciarsesion()" > Iniciar Sesion</ion-button>
+      </div>
+    </div>
+  </ion-content>

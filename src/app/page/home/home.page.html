@@ -14,13 +14,14 @@
       <div class="form ion-text-center">
         <h2>Login </h2>
         <ion-item lines='none'>
-          <ion-input type="text"[(ngModel)]="dato" placeholder='Nombre'required ></ion-input>    
+          <ion-input type="text"[(ngModel)]="credenciales.correo" placeholder='Correo'required ></ion-input>    
         </ion-item>
         <ion-item lines='none'>
-          <ion-input type="password" [(ngModel)]="password"placeholder='Password' minlength="5" required></ion-input>
+          <ion-input type="password" [(ngModel)]="credenciales.password"placeholder='Password' minlength="5" required></ion-input>
         </ion-item>
-        <ion-button expand='block'(click)="siguiente()"> Iniciar Sesion</ion-button>
+        <ion-button expand='block'(click)="login()"> Iniciar Sesion</ion-button>
         <ion-button expand='block'(click)="recuperar()"> Recuperar Contraseña</ion-button>
+        <ion-button expand='block'(click)="crearUsuario()" > Registrate</ion-button>
       </div>
     </div>
   </ion-content>

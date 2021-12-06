@@ -1,27 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { BdLocalService } from 'src/app/services/bd-local.service';
 import { IViajes} from 'src/app/interfaces/iviajes'
+import { FirestoreService } from 'src/app/services/firestore.service';
 @Component({
   selector: 'app-componente-reservar',
   templateUrl: './componente-reservar.component.html',
   styleUrls: ['./componente-reservar.component.scss'],
 })
 export class ComponenteReservarComponent implements OnInit {
-  IViajes:IViajes[]=[];
+  iviajes:IViajes[]=[];
   constructor(private activeRoute: ActivatedRoute,private router: Router,public toastController: ToastController,
-    public loadingController: LoadingController,private bdLocal:BdLocalService) { }
-    ionViewWillEnter(){
-      this.bdLocal.cargarViajes();
-    }
-  ngOnInit() {}
+    public loadingController: LoadingController, private database: FirestoreService) { }
+    
+  ngOnInit() {
+    this.getViajes();
+  }
+
+  getViajes(){
+    this.database.getCollection<IViajes>('Viajes').subscribe(res => {
+      console.log('esta es la lectura',res);
+      this.iviajes=res;
+    });
+  }
+
+
   siguiente(){
     this.presentToast();
   }
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Gracias por reservar un viaje, el viaje sera a las 17:00 Hrs con un coste de $1000.',
+      message: 'El viaje se ha reservado',
       duration: 2300,
       position: 'middle'
     });
@@ -39,9 +48,7 @@ export class ComponenteReservarComponent implements OnInit {
     }
     this.router.navigate(['/agregar'],navigationextras)
   }
-  getViajes(){
-    this.bdLocal.cargarViajes();
-  }
+  
 
   
   

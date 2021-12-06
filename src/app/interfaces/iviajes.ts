@@ -1,5 +1,8 @@
 export interface IViajes {
     Nombre:string;
-    Precio:string;
-    Dia:Date;
+    Inicio:string;
+    Final:string;
+    Precio:number;
+    Dia:string;
+    ID:string;
 }

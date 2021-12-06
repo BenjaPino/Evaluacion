@@ -4,34 +4,55 @@ import { AnimationController, LoadingController, ToastController } from '@ionic/
 import { Animation } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { Usuarios } from 'src/app/interfaces/Usuarios';
+import { NullTemplateVisitor } from '@angular/compiler';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-dato:string;
-password:string;
-token = 'dsa324asdg45';
+  
+   credenciales = {
+     correo:null,
+     password:null
+   }
   constructor( private activeRoute: ActivatedRoute,public toastController: 
-    ToastController,private router: Router, private animationCtrl: AnimationController,public loadingController: LoadingController,public alertController: AlertController) {
+    ToastController,private router: Router, private animationCtrl: AnimationController,
+    public loadingController: LoadingController,public alertController: AlertController, 
+    private database: FirestoreService, private auth: AuthService) {
     this.activeRoute.queryParams.subscribe(params=>{
       if(this.router.getCurrentNavigation().extras.state)
-        this.dato=this.router.getCurrentNavigation().extras.state.dato;
-        console.log(this.dato)
+        this.credenciales.correo=this.router.getCurrentNavigation().extras.state.dato;
+        console.log(this.credenciales.correo)
       }
     )}
-   
-   async siguiente(){
-     if(this.password.length>=5 && this.dato!="" ){
-       localStorage.setItem('token',this.token)
-    this.IniciarSesion();
-    let navigationextras: NavigationExtras={
-      state:{dato:this.dato}
-    }
-    this.router.navigate(['/login'],navigationextras) }
-    else{this.Error();}
-  }
+    
+    
+   crearUsuario(){
+     
+    this.router.navigate(['/registrarusuario'])
+   }
+
+   async login(){
+     console.log('credenciales', this.credenciales);
+     const res = await this.auth.login(this.credenciales.correo, this.credenciales.password).catch(error =>{
+       console.log('error');
+       this.Error();
+     })
+     if (res){
+       console.log('res ->',res);
+       let navigationextras: NavigationExtras={
+        state:{dato:this.credenciales.correo} 
+      }
+      this.router.navigate(['/login'],navigationextras)
+       
+
+     }
+   }
+
   recuperar(){
     this.Recuperar();
     let navigationextras: NavigationExtras={
@@ -64,7 +85,7 @@ token = 'dsa324asdg45';
   async Error() {
     const alert = await this.alertController.create({
       header:'TeLlevoAPP',
-      message: 'Campo nombre vacío y/o contraseña menor a 5 caracteres',
+      message: 'Usuario o contrase;a incorrectos',
       buttons: ['OK']
     });
 

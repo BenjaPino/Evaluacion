@@ -2,23 +2,20 @@
   <ion-toolbar color="mycolor">
     <ion-title>
       TeLlevoAPP
-      <ion-button class="logout"  (click)="salir()">
+      <ion-button class="logout"  (click)="logout()">
         <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
       </ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content >
-    <div class="container">
-      <div class="form ion-text-center">
-      <h2>Bienvenido, {{dato}}. 
-       
-        <br>Aqui podras ver la disponibilidad de alumnos con auto que te pueden llevar a tu casa.
-      </h2>
-    </div>
-    </div>
-    <app-componente-reservar></app-componente-reservar>
-    <ion-button class="agregar" expand='block'(click)="agregar()"> Agregar</ion-button>
+  <h3 class="form ion-text-center"> Bienvenido, {{dato}}
+  </h3>
+  
+    <app-componente-agregar *ngIf="automovil === 'SI'"> </app-componente-agregar>
+    <app-componente-reservar *ngIf="automovil === 'NO'"></app-componente-reservar>
+    
+
     
     
   </ion-content>

@@ -1,15 +1,17 @@
-<div class="container">
-<div class="form ion-text-center">
-  <ion-card class="card">
-    <ion-card-header>
-      <ion-card-title>Alumno 1</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </ion-card-content>
+<div class="ion-text-center">
+    <img class="img1" src="assets/logopagina.svg">
+  
+  </div>
+
+<div class="container"><h3>Bienvenido, ya que no tienes vehiculo particular puedes reservar un viaje</h3></div>
+<div class="container"*ngFor="let iviaje of iviajes">
+
+    
+    <h4 class="nombre">{{iviaje.Nombre}}</h4>
+    <h4 class="dia"  >{{iviaje.Dia}}</h4>
+    <h4 class="inicio">{{iviaje.Inicio}}</h4>
+    <h4 class="final">{{iviaje.Final}}</h4>
+    <h4 class="precio">{{iviaje.Precio}}</h4>
     <ion-button expand='block'(click)="siguiente()"> Reservar</ion-button>
-  </ion-card>
-  <h2> 
-    Si tienes un auto particular y quieres programar tu viaje de salida haz click en el siguiente boton.
-  </h2></div>
+
 </div>
