@@ -85,7 +85,7 @@ export class HomePage {
   async Error() {
     const alert = await this.alertController.create({
       header:'TeLlevoAPP',
-      message: 'Usuario o contrase;a incorrectos',
+      message: 'Usuario o contraseña incorrectos',
       buttons: ['OK']
     });
 

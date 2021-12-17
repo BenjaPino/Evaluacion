@@ -44,7 +44,7 @@ export class RegistrarusuarioPage implements OnInit {
 
 
   iniciarsesion(){
-    this.router.navigate(['/login'])
+    this.router.navigate(['/home'])
   }
   async Error() {
     const alert = await this.alertController.create({

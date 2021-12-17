@@ -41,15 +41,18 @@ ion-button{
 
 }
 .img1{
-  margin-top: 100px; 
+  margin-top: 10px; 
   height: 100px;
+  width: 100px;
+  padding: 10px;
+  position:fixed;
 }
 .form{
   padding: 10px;
     border-width: 2px;
 }
 .card{
-  --background:linear-gradient( 135deg, #eeebdc 10%, #fdf9dd 100%);
+  --background:linear-gradient( 135deg, #ffffff 10%, #fffdec 100%);
 }
   
 .logout{
